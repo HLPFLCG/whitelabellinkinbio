@@ -128,17 +128,6 @@ Add your fonts to the HTML head:
 - GDPR compliant
 - No user data collection
 
-## 🆘 Support
-
-- **Documentation**: Check this README
-- **Issues**: Report bugs via GitHub Issues
-- **Feature Requests**: Submit enhancement ideas
-- **Community**: Join our discussions
-
-## 📄 License
-
-This project is licensed under the MIT License - feel free to use it for personal or commercial projects.
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please:
@@ -157,9 +146,3 @@ Contributions are welcome! Please:
 - [ ] Team collaboration
 - [ ] API access
 - [ ] White-label admin panel
-
----
-
-**Made with ❤️ for the community**
-
-Perfect for creators, businesses, developers, and anyone who needs a professional link-in-bio solution.
