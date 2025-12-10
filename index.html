@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional link-in-bio platform">
+    <title>Your Brand - Connect With Us</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="profile-image">
+                <img src="assets/profile.jpg" alt="Profile" id="profile-img">
+            </div>
+            <h1 class="profile-name" id="profile-name">Your Name</h1>
+            <p class="profile-bio" id="profile-bio">Your Professional Bio</p>
+        </div>
+
+        <!-- Links Section -->
+        <div class="links-section" id="links-container">
+            <!-- Links will be dynamically added here -->
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-section" id="social-container">
+            <!-- Social links will be dynamically added here -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Your Brand. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#" id="privacy-link">Privacy</a>
+                <a href="#" id="terms-link">Terms</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal" id="edit-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Customize Your Page</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="edit-name">Name</label>
+                    <input type="text" id="edit-name" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="edit-bio">Bio</label>
+                    <textarea id="edit-bio" placeholder="Your professional bio"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="edit-profile-img">Profile Image URL</label>
+                    <input type="text" id="edit-profile-img" placeholder="https://example.com/image.jpg">
+                </div>
+                <div class="form-group">
+                    <label>Links</label>
+                    <div id="links-editor">
+                        <div class="link-item">
+                            <input type="text" placeholder="Title" class="link-title">
+                            <input type="url" placeholder="URL" class="link-url">
+                            <button type="button" onclick="removeLink(this)" class="remove-btn">Remove</button>
+                        </div>
+                    </div>
+                    <button type="button" onclick="addLink()" class="add-link-btn">+ Add Link</button>
+                </div>
+                <div class="form-group">
+                    <label>Social Links</label>
+                    <div id="social-editor">
+                        <div class="social-item">
+                            <select class="social-platform">
+                                <option value="twitter">Twitter</option>
+                                <option value="linkedin">LinkedIn</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="facebook">Facebook</option>
+                                <option value="youtube">YouTube</option>
+                                <option value="tiktok">TikTok</option>
+                                <option value="github">GitHub</option>
+                                <option value="website">Website</option>
+                            </select>
+                            <input type="url" placeholder="URL" class="social-url">
+                            <button type="button" onclick="removeSocial(this)" class="remove-btn">Remove</button>
+                        </div>
+                    </div>
+                    <button type="button" onclick="addSocial()" class="add-link-btn">+ Add Social</button>
+                </div>
+                <div class="form-group">
+                    <label for="brand-color">Brand Color</label>
+                    <input type="color" id="brand-color" value="#6366f1">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="saveChanges()" class="save-btn">Save Changes</button>
+                <button onclick="closeModal()" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Button -->
+    <button class="edit-btn" onclick="openModal()" title="Edit Page">
+        <i class="fas fa-edit"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
