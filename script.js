@@ -129,9 +129,9 @@ class LinkHubPro {
                 }
             },
             theme: {
-                primaryColor: "#6366f1",
-                secondaryColor: "#8b5cf6",
-                backgroundColor: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+                primaryColor: "#1a1a1a",
+                secondaryColor: "#4a4a4a",
+                backgroundColor: "#fafafa"
             }
         };
 
