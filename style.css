@@ -20,6 +20,16 @@
     --accent-light: #8b5cf6;
     --accent-bright: #a78bfa;
     
+    /* Music Platform Colors */
+    --spotify-green: #1db954;
+    --apple-red: #fa243c;
+    --youtube-red: #ff0000;
+    --soundcloud-orange: #ff5500;
+    --bandcamp-blue: #40a5c4;
+    --tiktok-black: #000000;
+    --tiktok-pink: #ff0050;
+    --tiktok-blue: #00f2ea;
+    
     /* Neutral Colors */
     --white: #ffffff;
     --gray-50: #f9fafb;
@@ -269,6 +279,87 @@ body {
     border: none;
 }
 
+.music-link.soundcloud {
+    background: var(--soundcloud-orange);
+    color: var(--white);
+    border: none;
+}
+
+.music-link.bandcamp {
+    background: var(--bandcamp-blue);
+    color: var(--white);
+    border: none;
+}
+
+/* Music Platform Hover Effects */
+.music-link.spotify:hover {
+    background: #1aa34a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(29, 185, 84, 0.3);
+}
+
+.music-link.apple:hover {
+    background: #e91e3a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(250, 36, 60, 0.3);
+}
+
+.music-link.youtube:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3);
+}
+
+.music-link.soundcloud:hover {
+    background: #ff4400;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 85, 0, 0.3);
+}
+
+.music-link.bandcamp:hover {
+    background: #3a94b4;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(64, 165, 196, 0.3);
+}
+
+/* Music Business Tools */
+.business-link.tour {
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+    color: var(--white);
+    border: none;
+}
+
+.business-link.merch {
+    background: linear-gradient(135deg, #ec4899, #be185d);
+    color: var(--white);
+    border: none;
+}
+
+.business-link.press {
+    background: linear-gradient(135deg, var(--gray-700), var(--gray-800));
+    color: var(--white);
+    border: none;
+}
+
+/* Business Tool Hover Effects */
+.business-link.tour:hover {
+    background: linear-gradient(135deg, var(--accent-dark), #553c9a);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+}
+
+.business-link.merch:hover {
+    background: linear-gradient(135deg, #be185d, #9f1239);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(236, 72, 153, 0.3);
+}
+
+.business-link.press:hover {
+    background: linear-gradient(135deg, var(--gray-800), var(--gray-900));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(55, 65, 81, 0.3);
+}
+
 .contact-link {
     background: var(--accent-color);
     color: var(--white);
@@ -422,6 +513,85 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Music-Themed Animations */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes soundWave {
+    0% {
+        transform: scaleY(0.5);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scaleY(0.5);
+        opacity: 0.3;
+    }
+}
+
+@keyframes musicNote {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20px) rotate(15deg);
+        opacity: 0;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Apply pulse animation to latest release */
+.primary-link[data-link-id="latest-release"] {
+    animation: pulse 2s infinite;
+}
+
+/* Music note floating effect for music links */
+.music-link::before {
+    content: "♪";
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    font-size: 12px;
+    color: var(--accent-color);
+    animation: musicNote 3s infinite;
+    opacity: 0;
+}
+
+.music-link:hover::before {
+    opacity: 1;
 }
 
 /* Responsive Design */

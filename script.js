@@ -63,10 +63,18 @@ class HLPFLAnalytics {
     trackLinkClick(link) {
         const linkId = link.dataset.linkId;
         const linkTitle = link.querySelector('.link-title').textContent;
+        const linkClass = link.className;
         
         // Update click count
         this.analytics.clicks[linkId] = (this.analytics.clicks[linkId] || 0) + 1;
         this.storeClicks(this.analytics.clicks);
+        
+        // Music-specific tracking
+        if (linkClass.includes('music-link')) {
+            this.trackMusicInteraction(linkId, linkTitle);
+        } else if (linkClass.includes('business-link')) {
+            this.trackBusinessInteraction(linkId, linkTitle);
+        }
         
         // Track event
         console.log(`Link clicked: ${linkTitle} (${linkId})`);
@@ -180,6 +188,90 @@ class HLPFLAnalytics {
 
     storeClicks(clicks) {
         localStorage.setItem('hlpfl_link_clicks', JSON.stringify(clicks));
+    }
+
+    // Music-specific tracking methods
+    trackMusicInteraction(linkId, linkTitle) {
+        // Track music platform engagement
+        const musicStats = this.getMusicStats();
+        
+        if (!musicStats.platforms) {
+            musicStats.platforms = {};
+        }
+        
+        musicStats.platforms[linkId] = (musicStats.platforms[linkId] || 0) + 1;
+        musicStats.totalMusicClicks = (musicStats.totalMusicClicks || 0) + 1;
+        
+        this.storeMusicStats(musicStats);
+        
+        // Log for analytics
+        console.log(`🎵 Music interaction: ${linkTitle} on ${linkId}`);
+        
+        // Show music-specific notification
+        this.showMusicNotification(linkTitle, linkId);
+    }
+
+    trackBusinessInteraction(linkId, linkTitle) {
+        // Track business tool engagement
+        const businessStats = this.getBusinessStats();
+        
+        if (!businessStats.tools) {
+            businessStats.tools = {};
+        }
+        
+        businessStats.tools[linkId] = (businessStats.tools[linkId] || 0) + 1;
+        businessStats.totalBusinessClicks = (businessStats.totalBusinessClicks || 0) + 1;
+        
+        this.storeBusinessStats(businessStats);
+        
+        // Log for analytics
+        console.log(`🎤 Business interaction: ${linkTitle} on ${linkId}`);
+    }
+
+    getMusicStats() {
+        const stored = localStorage.getItem('hlpfl_music_stats');
+        return stored ? JSON.parse(stored) : {};
+    }
+
+    storeMusicStats(stats) {
+        localStorage.setItem('hlpfl_music_stats', JSON.stringify(stats));
+    }
+
+    getBusinessStats() {
+        const stored = localStorage.getItem('hlpfl_business_stats');
+        return stored ? JSON.parse(stored) : {};
+    }
+
+    storeBusinessStats(stats) {
+        localStorage.setItem('hlpfl_business_stats', JSON.stringify(stats));
+    }
+
+    showMusicNotification(platform, linkId) {
+        // Create a subtle notification for music interactions
+        const notification = document.createElement('div');
+        notification.className = 'music-notification';
+        notification.innerHTML = `🎵 Opening ${platform}...`;
+        notification.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+        `;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 2000);
     }
 
     getSessions() {
