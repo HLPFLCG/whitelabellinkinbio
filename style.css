@@ -8,16 +8,17 @@
 }
 
 :root {
-    /* HLPFL-Inspired Color Palette */
-    --primary-color: #1a1a1a;
+    /* HLPFL-Inspired Color Palette - Enhanced Professional */
+    --primary-color: #0f0f0f;
     --primary-dark: #000000;
-    --primary-light: #2d2d2d;
-    --secondary-color: #4a4a4a;
-    --secondary-dark: #333333;
-    --secondary-light: #5a5a5a;
-    --accent-color: #6b46c1;
-    --accent-dark: #553c9a;
-    --accent-light: #7c3aed;
+    --primary-light: #1a1a1a;
+    --secondary-color: #2a2a2a;
+    --secondary-dark: #1f1f1f;
+    --secondary-light: #3a3a3a;
+    --accent-color: #7c3aed;
+    --accent-dark: #6d28d9;
+    --accent-light: #8b5cf6;
+    --accent-bright: #a78bfa;
     
     /* Neutral Colors - Professional Business Theme */
     --white: #ffffff;
