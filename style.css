@@ -36,6 +36,9 @@
     /* Social Media Colors */
     --instagram-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     --youtube-red: #ff0000;
+    --spotify-green: #1db954;
+    --apple-gray: #333333;
+    --tiktok-pink: #ff0050;
     
     /* Typography */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -236,6 +239,30 @@ body {
 }
 
 .social-link.youtube {
+    background: var(--youtube-red);
+    color: var(--white);
+    border: none;
+}
+
+.social-link.tiktok {
+    background: var(--tiktok-pink);
+    color: var(--white);
+    border: none;
+}
+
+.music-link.spotify {
+    background: var(--spotify-green);
+    color: var(--white);
+    border: none;
+}
+
+.music-link.apple {
+    background: var(--apple-gray);
+    color: var(--white);
+    border: none;
+}
+
+.music-link.youtube {
     background: var(--youtube-red);
     color: var(--white);
     border: none;

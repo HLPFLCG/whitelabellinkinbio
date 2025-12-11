@@ -1,7 +1,7 @@
 {
-  "name": "HLPFL - Connect With Us",
-  "short_name": "HLPFL",
-  "description": "Management for Independent Artists - Connect with our comprehensive music business services",
+  "name": "alki - musician",
+  "short_name": "alki",
+  "description": "28 year old musician. Creating authentic music from the Pacific Northwest.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
