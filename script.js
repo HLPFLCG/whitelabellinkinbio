@@ -255,13 +255,14 @@ class HLPFLAnalytics {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: var(--accent-color);
-            color: white;
+            background: var(--secondary-color);
+            color: var(--white);
             padding: 12px 20px;
             border-radius: 8px;
             font-size: 14px;
             z-index: 1000;
             animation: slideIn 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         `;
         
         document.body.appendChild(notification);

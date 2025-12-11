@@ -8,27 +8,27 @@
 }
 
 :root {
-    /* HLPFL-Inspired Color Palette - Enhanced Professional */
-    --primary-color: #0f0f0f;
-    --primary-dark: #000000;
-    --primary-light: #1a1a1a;
-    --secondary-color: #2a2a2a;
-    --secondary-dark: #1f1f1f;
-    --secondary-light: #3a3a3a;
-    --accent-color: #7c3aed;
-    --accent-dark: #6d28d9;
-    --accent-light: #8b5cf6;
-    --accent-bright: #a78bfa;
+    /* HLPFL-Inspired Color Palette - Subtle Professional */
+    --primary-color: #1a1a1a;
+    --primary-dark: #0f0f0f;
+    --primary-light: #2a2a2a;
+    --secondary-color: #4a4a4a;
+    --secondary-dark: #3a3a3a;
+    --secondary-light: #5a5a5a;
+    --accent-color: #6b5b95;
+    --accent-dark: #5a4a85;
+    --accent-light: #7a6aa5;
+    --accent-bright: #8a7ab5;
     
-    /* Music Platform Colors */
-    --spotify-green: #1db954;
-    --apple-red: #fa243c;
-    --youtube-red: #ff0000;
-    --soundcloud-orange: #ff5500;
-    --bandcamp-blue: #40a5c4;
-    --tiktok-black: #000000;
-    --tiktok-pink: #ff0050;
-    --tiktok-blue: #00f2ea;
+    /* Music Platform Colors - Subtle & Professional */
+    --spotify-green: #2a7f3e;
+    --apple-red: #8b1a1a;
+    --youtube-red: #8b1a1a;
+    --soundcloud-orange: #8b4513;
+    --bandcamp-blue: #4a5568;
+    --tiktok-black: #2d3748;
+    --tiktok-pink: #8b5a8c;
+    --tiktok-blue: #4a7c7e;
     
     /* Neutral Colors */
     --white: #ffffff;
@@ -291,73 +291,73 @@ body {
     border: none;
 }
 
-/* Music Platform Hover Effects */
+/* Music Platform Hover Effects - Subtle */
 .music-link.spotify:hover {
-    background: #1aa34a;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(29, 185, 84, 0.3);
+    background: #236933;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(42, 127, 62, 0.15);
 }
 
 .music-link.apple:hover {
-    background: #e91e3a;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(250, 36, 60, 0.3);
+    background: #741414;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139, 26, 26, 0.15);
 }
 
 .music-link.youtube:hover {
-    background: #cc0000;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3);
+    background: #741414;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139, 26, 26, 0.15);
 }
 
 .music-link.soundcloud:hover {
-    background: #ff4400;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 85, 0, 0.3);
+    background: #733a0e;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.15);
 }
 
 .music-link.bandcamp:hover {
-    background: #3a94b4;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(64, 165, 196, 0.3);
+    background: #3d4756;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74, 85, 104, 0.15);
 }
 
-/* Music Business Tools */
+/* Music Business Tools - Subtle & Professional */
 .business-link.tour {
-    background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+    background: linear-gradient(135deg, #5a4b8c, #4a3d7a);
     color: var(--white);
     border: none;
 }
 
 .business-link.merch {
-    background: linear-gradient(135deg, #ec4899, #be185d);
+    background: linear-gradient(135deg, #8b5a7c, #7a4a6b);
     color: var(--white);
     border: none;
 }
 
 .business-link.press {
-    background: linear-gradient(135deg, var(--gray-700), var(--gray-800));
+    background: linear-gradient(135deg, #4a5568, #3d4756);
     color: var(--white);
     border: none;
 }
 
-/* Business Tool Hover Effects */
+/* Business Tool Hover Effects - Subtle */
 .business-link.tour:hover {
-    background: linear-gradient(135deg, var(--accent-dark), #553c9a);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+    background: linear-gradient(135deg, #4a3d7a, #3d3168);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(90, 75, 140, 0.15);
 }
 
 .business-link.merch:hover {
-    background: linear-gradient(135deg, #be185d, #9f1239);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(236, 72, 153, 0.3);
+    background: linear-gradient(135deg, #7a4a6b, #6d3d5e);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139, 90, 124, 0.15);
 }
 
 .business-link.press:hover {
-    background: linear-gradient(135deg, var(--gray-800), var(--gray-900));
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(55, 65, 81, 0.3);
+    background: linear-gradient(135deg, #3d4756, #303947);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74, 85, 104, 0.15);
 }
 
 .contact-link {
@@ -515,13 +515,13 @@ body {
     }
 }
 
-/* Music-Themed Animations */
+/* Music-Themed Animations - Subtle */
 @keyframes pulse {
     0%, 100% {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.05);
+        transform: scale(1.02);
     }
 }
 
@@ -573,9 +573,9 @@ body {
     }
 }
 
-/* Apply pulse animation to latest release */
+/* Apply subtle pulse animation to latest release */
 .primary-link[data-link-id="latest-release"] {
-    animation: pulse 2s infinite;
+    animation: pulse 4s infinite;
 }
 
 /* Music note floating effect for music links */
