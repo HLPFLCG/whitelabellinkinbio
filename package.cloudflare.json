@@ -1,0 +1,26 @@
+{
+  "name": "linktree-cloudflare",
+  "version": "1.0.0",
+  "description": "Linktree alternative built with Cloudflare Pages and D1",
+  "scripts": {
+    "dev": "wrangler pages dev public --compatibility-date=2024-01-01 --d1=DB",
+    "build": "echo 'Build complete'",
+    "deploy": "wrangler pages deploy public --project-name=linktree-clone",
+    "db:init": "wrangler d1 execute linktree-db --file=./schema.sql",
+    "db:query": "wrangler d1 execute linktree-db --command"
+  },
+  "keywords": [
+    "linktree",
+    "cloudflare",
+    "d1",
+    "workers",
+    "pages"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241127.0",
+    "wrangler": "^3.94.0",
+    "typescript": "^5.7.2"
+  }
+}

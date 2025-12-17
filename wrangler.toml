@@ -1,0 +1,14 @@
+name = "linktree-clone"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "dist"
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "linktree-db"
+database_id = "YOUR_DATABASE_ID_HERE"
+
+# KV namespace for sessions (optional, for better performance)
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "YOUR_KV_ID_HERE"
