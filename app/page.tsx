@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { Link as LinkIcon, BarChart3, Zap } from 'lucide-react';
+import Link from "next/link";
+import { Link as LinkIcon, BarChart3, Zap } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -10,7 +10,9 @@ export default function HomePage() {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <LinkIcon className="w-8 h-8 text-indigo-600" />
-              <span className="ml-2 text-xl font-bold text-gray-900">LinkHub</span>
+              <span className="ml-2 text-xl font-bold text-gray-900">
+                LinkHub
+              </span>
             </div>
             <div className="flex items-center space-x-4">
               <Link
@@ -36,11 +38,13 @@ export default function HomePage() {
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             One Link for
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
-              {' '}Everything
+              {" "}
+              Everything
             </span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Share all your important links in one beautiful page. Perfect for creators, businesses, and professionals.
+            Share all your important links in one beautiful page. Perfect for
+            creators, businesses, and professionals.
           </p>
           <div className="flex justify-center space-x-4">
             <Link
@@ -76,9 +80,7 @@ export default function HomePage() {
             <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
               <BarChart3 className="w-6 h-6 text-purple-600" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">
-              Analytics
-            </h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Analytics</h3>
             <p className="text-gray-600">
               Track clicks and see which links perform best.
             </p>

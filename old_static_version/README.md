@@ -17,29 +17,34 @@ A sophisticated link-in-bio platform designed for independent music business man
 ## ✨ Key Features
 
 ### 🎯 Social Media Hub
+
 - **Instagram** - Profile view, direct messaging, follower stats
 - **YouTube** - Channel access, subscribe button, subscriber count
 - **TikTok** - Profile viewing, follow functionality, engagement stats
 - **LinkedIn** - Professional networking, connection requests, post visibility
 
 ### 🎵 Streaming Platforms
+
 - **Spotify** - Artist profiles, monthly listeners, direct streaming
 - **Apple Music** - Music library access, artist pages
 - **SoundCloud** - Audio streaming, track sharing, creator profiles
 
 ### 💼 Business Tools
+
 - **Appointment Booking** - Calendly integration, schedule meetings
 - **Portfolio Showcase** - Display work, case studies, testimonials
 - **Online Shop** - E-commerce integration, product showcase
 - **Newsletter Signup** - Email marketing, subscriber management
 
 ### 📊 Analytics Dashboard
+
 - **Real-time Click Tracking** - Monitor link performance
 - **Visitor Analytics** - Unique visitors, session tracking
 - **Conversion Metrics** - Engagement rates, click-through rates
 - **Platform Performance** - Best performing social platforms
 
 ### 🎨 Customization Options
+
 - **Brand Colors** - Match your business identity
 - **Profile Customization** - Professional image, bio, contact info
 - **Layout Options** - Choose what to display prominently
@@ -47,37 +52,41 @@ A sophisticated link-in-bio platform designed for independent music business man
 
 ## 🏆 What Makes LinkHub Pro Superior to Linktree?
 
-| Feature | LinkHub Pro | Linktree |
-|---------|-------------|----------|
-| **Social Media Cards** | ✅ Rich, interactive cards with stats | ❌ Basic links only |
-| **Streaming Integration** | ✅ Spotify, Apple Music, SoundCloud | ❌ Not available |
-| **Business Tools** | ✅ Booking, Portfolio, Shop, Newsletter | ❌ Limited pro features |
-| **Analytics** | ✅ Advanced, real-time dashboard | ❌ Basic analytics (paid) |
-| **Customization** | ✅ Full theme control, white-label | ❌ Limited branding |
-| **Cost** | ✅ Completely free | ❌ $6-24/month |
-| **Contact Options** | ✅ Email, phone, direct messaging | ❌ Link-based only |
-| **PWA Support** | ✅ Installable app experience | ❌ Web only |
-| **Performance** | ✅ Optimized, CDN-ready | ❌ Slower loading |
+| Feature                   | LinkHub Pro                             | Linktree                  |
+| ------------------------- | --------------------------------------- | ------------------------- |
+| **Social Media Cards**    | ✅ Rich, interactive cards with stats   | ❌ Basic links only       |
+| **Streaming Integration** | ✅ Spotify, Apple Music, SoundCloud     | ❌ Not available          |
+| **Business Tools**        | ✅ Booking, Portfolio, Shop, Newsletter | ❌ Limited pro features   |
+| **Analytics**             | ✅ Advanced, real-time dashboard        | ❌ Basic analytics (paid) |
+| **Customization**         | ✅ Full theme control, white-label      | ❌ Limited branding       |
+| **Cost**                  | ✅ Completely free                      | ❌ $6-24/month            |
+| **Contact Options**       | ✅ Email, phone, direct messaging       | ❌ Link-based only        |
+| **PWA Support**           | ✅ Installable app experience           | ❌ Web only               |
+| **Performance**           | ✅ Optimized, CDN-ready                 | ❌ Slower loading         |
 
 ## 🚀 Quick Start
 
 ### 1. Clone or Download
+
 ```bash
 git clone https://github.com/HLPFLCG/whitelabellinkinbio.git
 cd whitelabellinkinbio
 ```
 
 ### 2. Open and Customize
+
 - Open `index.html` in your browser
 - Click the edit button (bottom-right) to customize
 - Update your profile, social links, and business tools
 
 ### 3. Deploy
+
 - **Recommended:** Deploy to Cloudflare Pages (free)
 - **Alternative:** GitHub Pages, Netlify, Vercel
 - **Custom:** Any static hosting service
 
 ### 4. Share Your Link
+
 Your professional link hub is ready to share!
 
 ## 📱 Mobile Optimization
@@ -90,18 +99,21 @@ Your professional link hub is ready to share!
 ## 🔧 Technical Features
 
 ### Performance
+
 - **PageSpeed Score:** 90+ achievable
 - **Lighthouse Score:** 95+ across all categories
 - **Global CDN:** Ready for instant worldwide access
 - **Optimized Assets:** Compressed images, minified code
 
 ### Security & SEO
+
 - **HTTPS Ready:** Automatic SSL certificates
 - **Security Headers:** XSS protection, content security
 - **SEO Optimized:** Meta tags, Open Graph, structured data
 - **Accessibility:** WCAG 2.1 compliant
 
 ### PWA Features
+
 - **Installable:** Add to home screen
 - **Offline Ready:** Basic offline functionality
 - **App-Like Experience:** Native app feel
@@ -110,11 +122,12 @@ Your professional link hub is ready to share!
 ## 🎨 Customization Guide
 
 ### Profile Setup
+
 ```javascript
 // In the edit modal or directly in script.js
 profile: {
     name: "Your Business Name",
-    title: "Professional Title", 
+    title: "Professional Title",
     bio: "Your compelling business description",
     image: "https://your-image-url.jpg",
     verified: true
@@ -122,6 +135,7 @@ profile: {
 ```
 
 ### Social Media Links
+
 ```javascript
 social: {
     instagram: {
@@ -135,6 +149,7 @@ social: {
 ```
 
 ### Business Tools
+
 ```javascript
 businessTools: {
     booking: {
@@ -147,39 +162,48 @@ businessTools: {
 ```
 
 ### Theme Customization
+
 ```css
 :root {
-    --primary-color: #6366f1;    /* Your brand color */
-    --secondary-color: #8b5cf6;  /* Complementary color */
-    --accent-color: #ec4899;     /* Accent color */
+  --primary-color: #6366f1; /* Your brand color */
+  --secondary-color: #8b5cf6; /* Complementary color */
+  --accent-color: #ec4899; /* Accent color */
 }
 ```
 
 ## 📊 Analytics & Tracking
 
 ### Built-in Analytics
+
 - **Click Tracking:** Every link click is tracked
 - **Platform Performance:** Which social platforms perform best
 - **Visitor Analytics:** Unique visitors, session duration
 - **Conversion Rates:** Link engagement metrics
 
 ### External Analytics Integration
+
 Add your preferred analytics:
 
 ```html
 <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"
+></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'GA_TRACKING_ID');
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "GA_TRACKING_ID");
 </script>
 ```
 
 ## 🌍 Deployment Options
 
 ### Cloudflare Pages (Recommended)
+
 ```bash
 # Push to GitHub
 git add .
@@ -194,6 +218,7 @@ git push origin main
 ```
 
 ### Alternative Deployments
+
 - **GitHub Pages:** Free, simple setup
 - **Netlify:** Free with advanced features
 - **Vercel:** Free with excellent performance
@@ -202,18 +227,21 @@ git push origin main
 ## 🎯 Use Cases
 
 ### For Businesses
+
 - **Restaurants:** Menu, reservations, delivery, social media
 - **Freelancers:** Portfolio, booking, testimonials, contact
 - **E-commerce:** Shop links, social proof, customer service
 - **Professionals:** LinkedIn, calendar, contact, achievements
 
 ### For Creators
+
 - **Musicians:** Spotify, Apple Music, YouTube, merch
 - **YouTubers:** Channel, social media, merchandise, booking
 - **Influencers:** All social platforms, brand partnerships
 - **Artists:** Portfolio, commissions, social media, shop
 
 ### For Organizations
+
 - **Non-profits:** Donation links, social media, events
 - **Schools:** Programs, enrollment, social media, contact
 - **Events:** Registration, schedule, social media, tickets
@@ -222,34 +250,42 @@ git push origin main
 ## 🔧 Advanced Configuration
 
 ### Custom Domain
+
 ```bash
 # Point your domain to your deployment
 CNAME    @    your-deployment-url
 ```
 
 ### Custom Analytics Endpoint
+
 ```javascript
 // Add to script.js for custom tracking
-this.data.analyticsEndpoint = 'https://your-analytics-api.com/events';
+this.data.analyticsEndpoint = "https://your-analytics-api.com/events";
 ```
 
 ### Email Integration
+
 ```html
 <!-- Mailchimp signup form -->
-<form action="https://your-mailchimp-list.us20.list-manage.com/subscribe/post" method="post">
-    <!-- Your form fields -->
+<form
+  action="https://your-mailchimp-list.us20.list-manage.com/subscribe/post"
+  method="post"
+>
+  <!-- Your form fields -->
 </form>
 ```
 
 ## 🆘 Support & Troubleshooting
 
 ### Common Issues
+
 - **Images not loading:** Check file paths and URLs
 - **Links not working:** Ensure HTTPS is included in URLs
 - **Mobile issues:** Test on actual devices, not just emulators
 - **Slow loading:** Optimize images, check CDN settings
 
 ### Getting Help
+
 - **Documentation:** Check this README and deployment guides
 - **Issues:** Report bugs via GitHub Issues
 - **Community:** Join discussions for tips and tricks
@@ -258,6 +294,7 @@ this.data.analyticsEndpoint = 'https://your-analytics-api.com/events';
 ## 🚀 Future Roadmap
 
 ### Upcoming Features
+
 - [ ] **QR Code Generation** - Share your link instantly
 - [ ] **Advanced Analytics Dashboard** - Detailed insights
 - [ ] **A/B Testing** - Test different layouts and content
@@ -268,6 +305,7 @@ this.data.analyticsEndpoint = 'https://your-analytics-api.com/events';
 - [ ] **Payment Integration** - Accept payments directly
 
 ### Platform Expansions
+
 - [ ] **More Social Platforms** - Threads, X, Facebook, etc.
 - [ ] **Video Integration** - Embed videos directly
 - [ ] **Podcast Support** - Apple Podcasts, Spotify Podcasts
@@ -305,4 +343,4 @@ Contributions are welcome! Please:
 
 ---
 
-*Made with ❤️ for businesses and creators who deserve better than basic link trees*
+_Made with ❤️ for businesses and creators who deserve better than basic link trees_

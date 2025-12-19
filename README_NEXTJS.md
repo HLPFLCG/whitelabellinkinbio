@@ -169,12 +169,14 @@ whitelabellinkinbio/
 ### Tables
 
 **profiles**
+
 - User profile information
 - Username (unique URL slug)
 - Display name, bio, avatar
 - Theme preferences
 
 **links**
+
 - User's links
 - Title, URL, description
 - Position (for ordering)
@@ -182,6 +184,7 @@ whitelabellinkinbio/
 - Active/inactive status
 
 **social_links** (optional)
+
 - Social media links
 - Platform-specific data
 
@@ -233,15 +236,18 @@ The codebase is modular and easy to extend. Common additions:
 ## 🐛 Troubleshooting
 
 ### "Invalid API key" error
+
 - Check that `.env.local` exists and has correct values
 - Restart the development server after adding env variables
 
 ### Database connection issues
+
 - Verify Supabase project is active
 - Check that SQL schema was executed successfully
 - Ensure RLS policies are enabled
 
 ### Build errors
+
 - Run `npm install` to ensure all dependencies are installed
 - Check for TypeScript errors with `npm run build`
 

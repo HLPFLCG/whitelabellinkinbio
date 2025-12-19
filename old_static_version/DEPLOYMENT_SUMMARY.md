@@ -30,6 +30,7 @@ whitelabellinkinbio/
 ### One-Click Deployment Steps:
 
 1. **Push to GitHub** (if not already done):
+
    ```bash
    git add .
    git commit -m "Ready for Cloudflare Pages deployment"
@@ -72,11 +73,13 @@ whitelabellinkinbio/
 ## 🎨 Customization Options
 
 ### Pre-Deployment Customization:
+
 - Edit `script.js` for default profile data
 - Modify `style.css` for default theme colors
 - Update `index.html` for meta tags and SEO
 
 ### Post-Deployment Customization:
+
 - Use built-in editor for real-time changes
 - All customization data stored locally
 - Instant preview of changes
@@ -85,12 +88,14 @@ whitelabellinkinbio/
 ## 🌍 Deployment Targets
 
 ### Primary: Cloudflare Pages ✅
+
 - **Status**: Fully configured and ready
 - **Features**: Global CDN, automatic SSL, analytics
 - **Cost**: Free tier available
 - **Performance**: Excellent
 
 ### Alternative Options:
+
 - **GitHub Pages**: Free, simple setup
 - **Netlify**: Free with advanced features
 - **Vercel**: Free with excellent performance

@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Link } from '@/lib/types/database';
+import { useState } from "react";
+import { Link } from "@/lib/types/database";
 
 interface Props {
   initialData?: Partial<Link>;
@@ -10,9 +10,11 @@ interface Props {
 }
 
 export default function LinkForm({ initialData, onSubmit, onCancel }: Props) {
-  const [title, setTitle] = useState(initialData?.title || '');
-  const [url, setUrl] = useState(initialData?.url || '');
-  const [description, setDescription] = useState(initialData?.description || '');
+  const [title, setTitle] = useState(initialData?.title || "");
+  const [url, setUrl] = useState(initialData?.url || "");
+  const [description, setDescription] = useState(
+    initialData?.description || "",
+  );
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,7 +24,10 @@ export default function LinkForm({ initialData, onSubmit, onCancel }: Props) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
+        <label
+          htmlFor="title"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
           Title *
         </label>
         <input
@@ -37,7 +42,10 @@ export default function LinkForm({ initialData, onSubmit, onCancel }: Props) {
       </div>
 
       <div>
-        <label htmlFor="url" className="block text-sm font-medium text-gray-700 mb-1">
+        <label
+          htmlFor="url"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
           URL *
         </label>
         <input
@@ -52,7 +60,10 @@ export default function LinkForm({ initialData, onSubmit, onCancel }: Props) {
       </div>
 
       <div>
-        <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
+        <label
+          htmlFor="description"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
           Description
         </label>
         <textarea

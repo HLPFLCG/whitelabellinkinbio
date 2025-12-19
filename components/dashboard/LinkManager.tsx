@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Link } from '@/lib/types/database';
-import { Plus, GripVertical, Pencil, Trash2, Eye, EyeOff } from 'lucide-react';
-import LinkForm from './LinkForm';
+import { useState } from "react";
+import { Link } from "@/lib/types/database";
+import { Plus, GripVertical, Pencil, Trash2, Eye, EyeOff } from "lucide-react";
+import LinkForm from "./LinkForm";
 
 interface Props {
   initialLinks: Link[];
@@ -15,9 +15,9 @@ export default function LinkManager({ initialLinks }: Props) {
   const [editingLink, setEditingLink] = useState<Link | null>(null);
 
   const handleAddLink = async (data: Partial<Link>) => {
-    const response = await fetch('/api/links', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const response = await fetch("/api/links", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
 
@@ -30,27 +30,27 @@ export default function LinkManager({ initialLinks }: Props) {
 
   const handleUpdateLink = async (id: string, data: Partial<Link>) => {
     const response = await fetch(`/api/links/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
 
     if (response.ok) {
       const updatedLink = await response.json();
-      setLinks(links.map(link => link.id === id ? updatedLink : link));
+      setLinks(links.map((link) => (link.id === id ? updatedLink : link)));
       setEditingLink(null);
     }
   };
 
   const handleDeleteLink = async (id: string) => {
-    if (!confirm('Are you sure you want to delete this link?')) return;
+    if (!confirm("Are you sure you want to delete this link?")) return;
 
     const response = await fetch(`/api/links/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
 
     if (response.ok) {
-      setLinks(links.filter(link => link.id !== id));
+      setLinks(links.filter((link) => link.id !== id));
     }
   };
 
@@ -87,12 +87,17 @@ export default function LinkManager({ initialLinks }: Props) {
         {links.length === 0 && !isAdding && (
           <div className="text-center py-12 text-gray-500">
             <p className="text-lg font-medium">No links yet</p>
-            <p className="text-sm mt-1">Click the button above to add your first link</p>
+            <p className="text-sm mt-1">
+              Click the button above to add your first link
+            </p>
           </div>
         )}
-        
+
         {links.map((link) => (
-          <div key={link.id} className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <div
+            key={link.id}
+            className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+          >
             {editingLink?.id === link.id ? (
               <LinkForm
                 initialData={link}
@@ -105,7 +110,9 @@ export default function LinkManager({ initialLinks }: Props) {
                   <GripVertical className="w-5 h-5 text-gray-400 cursor-move" />
                   <div className="flex-1">
                     <div className="flex items-center space-x-2">
-                      <h4 className="font-medium text-gray-900">{link.title}</h4>
+                      <h4 className="font-medium text-gray-900">
+                        {link.title}
+                      </h4>
                       {!link.is_active && (
                         <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
                           Hidden
@@ -113,11 +120,14 @@ export default function LinkManager({ initialLinks }: Props) {
                       )}
                     </div>
                     {link.description && (
-                      <p className="text-sm text-gray-600 mt-1">{link.description}</p>
+                      <p className="text-sm text-gray-600 mt-1">
+                        {link.description}
+                      </p>
                     )}
                     <p className="text-xs text-gray-400 mt-1">{link.url}</p>
                     <p className="text-xs text-gray-500 mt-1">
-                      {link.click_count} {link.click_count === 1 ? 'click' : 'clicks'}
+                      {link.click_count}{" "}
+                      {link.click_count === 1 ? "click" : "clicks"}
                     </p>
                   </div>
                 </div>
@@ -125,7 +135,7 @@ export default function LinkManager({ initialLinks }: Props) {
                   <button
                     onClick={() => handleToggleActive(link)}
                     className="p-2 text-gray-600 hover:text-indigo-600 transition-colors"
-                    title={link.is_active ? 'Hide link' : 'Show link'}
+                    title={link.is_active ? "Hide link" : "Show link"}
                   >
                     {link.is_active ? (
                       <Eye className="w-4 h-4" />

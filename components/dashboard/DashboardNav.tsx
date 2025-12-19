@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
-import { createClient } from '@/lib/supabase/client';
-import Link from 'next/link';
-import { LogOut, Settings, Link as LinkIcon } from 'lucide-react';
+import { useRouter } from "next/navigation";
+import { createClient } from "@/lib/supabase/client";
+import Link from "next/link";
+import { LogOut, Settings, Link as LinkIcon } from "lucide-react";
 
 export default function DashboardNav() {
   const router = useRouter();
@@ -11,7 +11,7 @@ export default function DashboardNav() {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    router.push('/');
+    router.push("/");
     router.refresh();
   };
 

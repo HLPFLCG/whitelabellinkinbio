@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { Profile, Link, SocialLink } from '@/lib/types/database';
-import { ExternalLink } from 'lucide-react';
+import Image from "next/image";
+import { Profile, Link, SocialLink } from "@/lib/types/database";
+import { ExternalLink } from "lucide-react";
 
 interface Props {
   profile: Profile;
@@ -13,14 +13,14 @@ interface Props {
 export default function ProfilePage({ profile, links, socialLinks }: Props) {
   const handleLinkClick = async (linkId: string, url: string) => {
     // Track click
-    await fetch('/api/links/track', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    await fetch("/api/links/track", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ linkId }),
     });
-    
+
     // Open link
-    window.open(url, '_blank');
+    window.open(url, "_blank");
   };
 
   return (
@@ -44,9 +44,7 @@ export default function ProfilePage({ profile, links, socialLinks }: Props) {
             {profile.display_name || profile.username}
           </h1>
           {profile.bio && (
-            <p className="text-gray-600 max-w-md mx-auto">
-              {profile.bio}
-            </p>
+            <p className="text-gray-600 max-w-md mx-auto">{profile.bio}</p>
           )}
         </div>
 

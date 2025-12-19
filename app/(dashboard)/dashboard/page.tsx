@@ -1,24 +1,26 @@
-import { createClient } from '@/lib/supabase/server';
-import LinkManager from '@/components/dashboard/LinkManager';
-import { ExternalLink } from 'lucide-react';
-import Link from 'next/link';
+import { createClient } from "@/lib/supabase/server";
+import LinkManager from "@/components/dashboard/LinkManager";
+import { ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
-  
-  const { data: { user } } = await supabase.auth.getUser();
-  
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user?.id)
+    .from("profiles")
+    .select("*")
+    .eq("id", user?.id)
     .single();
 
   const { data: links } = await supabase
-    .from('links')
-    .select('*')
-    .eq('user_id', user?.id)
-    .order('position', { ascending: true });
+    .from("links")
+    .select("*")
+    .eq("user_id", user?.id)
+    .order("position", { ascending: true });
 
   return (
     <div className="max-w-4xl mx-auto">

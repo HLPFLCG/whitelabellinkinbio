@@ -40,6 +40,7 @@ git push origin main
    - Click "Begin setup"
 
 5. **Configure Build Settings**
+
    ```
    Framework preset: None
    Build command: npm run build
@@ -49,6 +50,7 @@ git push origin main
 
 6. **Environment Variables** (Optional)
    Add any custom environment variables if needed:
+
    ```
    NODE_VERSION: 18
    ```
@@ -120,12 +122,17 @@ Add your analytics code to `index.html` before the closing `</head>` tag:
 
 ```html
 <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"
+></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'GA_TRACKING_ID');
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "GA_TRACKING_ID");
 </script>
 ```
 
@@ -157,6 +164,7 @@ The `_headers` file includes optimal caching settings:
 ### CDN Benefits
 
 Cloudflare Pages provides:
+
 - Global CDN distribution
 - Automatic compression
 - HTTP/2 support
@@ -185,6 +193,7 @@ For manual control:
 ### Common Issues
 
 #### Build Failures
+
 ```bash
 # Check build logs in Cloudflare dashboard
 # Ensure all files are committed to Git
@@ -192,6 +201,7 @@ For manual control:
 ```
 
 #### Asset Loading Issues
+
 ```bash
 # Check file paths in HTML/CSS/JS
 # Verify case sensitivity (Linux is case-sensitive)
@@ -199,6 +209,7 @@ For manual control:
 ```
 
 #### CORS Issues
+
 ```bash
 # Check _headers file for proper CORS settings
 # Verify external resource URLs
@@ -232,6 +243,7 @@ Use these tools:
 3. **WebPageTest**: `webpagetest.org`
 
 Target scores:
+
 - Performance: 90+
 - Accessibility: 95+
 - Best Practices: 90+
@@ -242,6 +254,7 @@ Target scores:
 ### Cloudflare Analytics
 
 Access via Cloudflare dashboard:
+
 - Page views
 - Unique visitors
 - Geographic distribution
@@ -250,6 +263,7 @@ Access via Cloudflare dashboard:
 ### Custom Analytics
 
 Integrate with:
+
 - Google Analytics
 - Plausible Analytics
 - Simple Analytics
@@ -265,13 +279,14 @@ For server-side features, add Cloudflare Functions:
 // functions/api/analytics.js
 export async function onRequestPost(request) {
   // Handle analytics data
-  return new Response('OK');
+  return new Response("OK");
 }
 ```
 
 ### Edge Computing
 
 Leverage Cloudflare's edge network:
+
 - Geo-based content
 - A/B testing
 - Personalization
@@ -286,7 +301,7 @@ Leverage Cloudflare's edge network:
 
 ## 🎉 Success!
 
-Your white-label link-in-bio platform is now live on Cloudflare Pages! 
+Your white-label link-in-bio platform is now live on Cloudflare Pages!
 
 🌐 **Your site is available at**: `https://your-project.pages.dev`
 
@@ -300,6 +315,7 @@ Your white-label link-in-bio platform is now live on Cloudflare Pages!
 ---
 
 **Need help?**
+
 - Check [Cloudflare Pages documentation](https://developers.cloudflare.com/pages/)
 - Review [GitHub issues](https://github.com/HLPFLCG/whitelabellinkinbio/issues)
 - Contact support for platform-specific questions

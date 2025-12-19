@@ -62,7 +62,7 @@ CREATE TABLE profiles (
   theme TEXT DEFAULT 'light',
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-  
+
   CONSTRAINT username_length CHECK (char_length(username) >= 3 AND char_length(username) <= 30),
   CONSTRAINT username_format CHECK (username ~ '^[a-zA-Z0-9_-]+$')
 );
@@ -80,7 +80,7 @@ CREATE TABLE links (
   click_count INTEGER DEFAULT 0,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-  
+
   CONSTRAINT url_format CHECK (url ~ '^https?://')
 );
 
@@ -91,7 +91,7 @@ CREATE TABLE social_links (
   platform TEXT NOT NULL,
   url TEXT NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-  
+
   UNIQUE(user_id, platform)
 );
 
@@ -238,24 +238,24 @@ whitelabellinkinbio/
 Create `lib/supabase/client.ts`:
 
 ```typescript
-import { createBrowserClient } from '@supabase/ssr'
+import { createBrowserClient } from "@supabase/ssr";
 
 export function createClient() {
   return createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  )
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+  );
 }
 ```
 
 Create `lib/supabase/server.ts`:
 
 ```typescript
-import { createServerClient } from '@supabase/ssr'
-import { cookies } from 'next/headers'
+import { createServerClient } from "@supabase/ssr";
+import { cookies } from "next/headers";
 
 export async function createClient() {
-  const cookieStore = await cookies()
+  const cookieStore = await cookies();
 
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -263,13 +263,13 @@ export async function createClient() {
     {
       cookies: {
         getAll() {
-          return cookieStore.getAll()
+          return cookieStore.getAll();
         },
         setAll(cookiesToSet) {
           try {
             cookiesToSet.forEach(({ name, value, options }) =>
-              cookieStore.set(name, value, options)
-            )
+              cookieStore.set(name, value, options),
+            );
           } catch {
             // The `setAll` method was called from a Server Component.
             // This can be ignored if you have middleware refreshing
@@ -277,8 +277,8 @@ export async function createClient() {
           }
         },
       },
-    }
-  )
+    },
+  );
 }
 ```
 
@@ -288,48 +288,50 @@ Create `lib/types/database.ts`:
 
 ```typescript
 export interface Profile {
-  id: string
-  username: string
-  display_name: string | null
-  bio: string | null
-  avatar_url: string | null
-  theme: 'light' | 'dark'
-  created_at: string
-  updated_at: string
+  id: string;
+  username: string;
+  display_name: string | null;
+  bio: string | null;
+  avatar_url: string | null;
+  theme: "light" | "dark";
+  created_at: string;
+  updated_at: string;
 }
 
 export interface Link {
-  id: string
-  user_id: string
-  title: string
-  url: string
-  description: string | null
-  icon: string | null
-  position: number
-  is_active: boolean
-  click_count: number
-  created_at: string
-  updated_at: string
+  id: string;
+  user_id: string;
+  title: string;
+  url: string;
+  description: string | null;
+  icon: string | null;
+  position: number;
+  is_active: boolean;
+  click_count: number;
+  created_at: string;
+  updated_at: string;
 }
 
 export interface SocialLink {
-  id: string
-  user_id: string
-  platform: string
-  url: string
-  created_at: string
+  id: string;
+  user_id: string;
+  platform: string;
+  url: string;
+  created_at: string;
 }
 ```
 
 ### Step 3: Implement Authentication Pages
 
 The authentication pages are already implemented in the codebase. Check:
+
 - `app/(auth)/login/page.tsx`
 - `app/(auth)/register/page.tsx`
 
 ### Step 4: Implement Dashboard
 
 The dashboard implementation is in:
+
 - `app/(dashboard)/dashboard/page.tsx`
 - `app/(dashboard)/dashboard/layout.tsx`
 - `app/(dashboard)/dashboard/settings/page.tsx`
@@ -337,11 +339,13 @@ The dashboard implementation is in:
 ### Step 5: Implement Public Profile Pages
 
 The public profile page is in:
+
 - `app/[username]/page.tsx`
 
 ### Step 6: Implement API Routes
 
 API routes are in:
+
 - `app/api/links/route.ts`
 - `app/api/links/[id]/route.ts`
 
@@ -350,6 +354,7 @@ API routes are in:
 ### Deploy to Vercel
 
 1. **Push to GitHub:**
+
    ```bash
    git add .
    git commit -m "Implement Next.js Linktree alternative"
@@ -391,15 +396,19 @@ API routes are in:
 ## 🆘 Troubleshooting
 
 ### Issue: "Invalid API key"
+
 **Solution:** Check that environment variables are correctly set in `.env.local`
 
 ### Issue: "User not found"
+
 **Solution:** Ensure the database trigger for creating profiles is working
 
 ### Issue: "Permission denied"
+
 **Solution:** Check Row Level Security policies in Supabase
 
 ### Issue: Build errors
+
 **Solution:** Run `npm install` to ensure all dependencies are installed
 
 ## 📚 Additional Resources

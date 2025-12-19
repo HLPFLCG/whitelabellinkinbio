@@ -1,63 +1,75 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { createClient } from '@/lib/supabase/client';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import { Camera, Save } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { createClient } from "@/lib/supabase/client";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { Camera, Save } from "lucide-react";
+
+interface Profile {
+  id: string;
+  username: string;
+  display_name: string | null;
+  bio: string | null;
+  avatar_url: string | null;
+}
 
 export default function SettingsPage() {
-  const [profile, setProfile] = useState<any>(null);
-  const [username, setUsername] = useState('');
-  const [displayName, setDisplayName] = useState('');
-  const [bio, setBio] = useState('');
-  const [avatarUrl, setAvatarUrl] = useState('');
+  const [profile, setProfile] = useState<Profile | null>(null);
+  const [username, setUsername] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const [bio, setBio] = useState("");
+  const [avatarUrl, setAvatarUrl] = useState("");
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState('');
-  
+  const [message, setMessage] = useState("");
+
   const supabase = createClient();
   const router = useRouter();
 
   useEffect(() => {
+    const loadProfile = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      const { data } = await supabase
+        .from("profiles")
+        .select("*")
+        .eq("id", user?.id)
+        .single();
+
+      if (data) {
+        setProfile(data);
+        setUsername(data.username);
+        setDisplayName(data.display_name || "");
+        setBio(data.bio || "");
+        setAvatarUrl(data.avatar_url || "");
+      }
+    };
+
     loadProfile();
-  }, []);
-
-  const loadProfile = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
-    const { data } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('id', user?.id)
-      .single();
-
-    if (data) {
-      setProfile(data);
-      setUsername(data.username);
-      setDisplayName(data.display_name || '');
-      setBio(data.bio || '');
-      setAvatarUrl(data.avatar_url || '');
-    }
-  };
+  }, [supabase]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!profile) return;
+    
     setLoading(true);
-    setMessage('');
+    setMessage("");
 
     const { error } = await supabase
-      .from('profiles')
+      .from("profiles")
       .update({
         username,
         display_name: displayName,
         bio,
         avatar_url: avatarUrl,
       })
-      .eq('id', profile.id);
+      .eq("id", profile.id);
 
     if (error) {
-      setMessage('Error updating profile: ' + error.message);
+      setMessage("Error updating profile: " + error.message);
     } else {
-      setMessage('Profile updated successfully!');
+      setMessage("Profile updated successfully!");
       router.refresh();
     }
 
@@ -71,7 +83,9 @@ export default function SettingsPage() {
   return (
     <div className="max-w-2xl mx-auto">
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h1 className="text-2xl font-bold text-gray-900 mb-6">Profile Settings</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-6">
+          Profile Settings
+        </h1>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Avatar */}
@@ -111,7 +125,10 @@ export default function SettingsPage() {
 
           {/* Username */}
           <div>
-            <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="username"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Username
             </label>
             <input
@@ -122,13 +139,18 @@ export default function SettingsPage() {
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
             <p className="mt-1 text-sm text-gray-500">
-              Your URL: {typeof window !== 'undefined' ? window.location.origin : ''}/{username}
+              Your URL:{" "}
+              {typeof window !== "undefined" ? window.location.origin : ""}/
+              {username}
             </p>
           </div>
 
           {/* Display Name */}
           <div>
-            <label htmlFor="displayName" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="displayName"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Display Name
             </label>
             <input
@@ -142,7 +164,10 @@ export default function SettingsPage() {
 
           {/* Bio */}
           <div>
-            <label htmlFor="bio" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="bio"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Bio
             </label>
             <textarea
@@ -156,11 +181,13 @@ export default function SettingsPage() {
           </div>
 
           {message && (
-            <div className={`p-3 rounded-lg ${
-              message.includes('Error') 
-                ? 'bg-red-50 text-red-700 border border-red-200' 
-                : 'bg-green-50 text-green-700 border border-green-200'
-            }`}>
+            <div
+              className={`p-3 rounded-lg ${
+                message.includes("Error")
+                  ? "bg-red-50 text-red-700 border border-red-200"
+                  : "bg-green-50 text-green-700 border border-green-200"
+              }`}
+            >
               {message}
             </div>
           )}
@@ -171,7 +198,7 @@ export default function SettingsPage() {
             className="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg hover:bg-indigo-700 transition-colors disabled:opacity-50 font-medium flex items-center justify-center space-x-2"
           >
             <Save className="w-4 h-4" />
-            <span>{loading ? 'Saving...' : 'Save Changes'}</span>
+            <span>{loading ? "Saving..." : "Save Changes"}</span>
           </button>
         </form>
       </div>
